@@ -1,0 +1,26 @@
+{% extends 'referral/base.html' %}
+
+{% block title %}
+Referral Detail - NZ Healthcare
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Referral Detail</h2>
+    <p><strong>Person's Full Name:</strong> {{ referral.person.first_name }} {{ referral.person.last_name }}</p>
+    <p><strong>Referral Date:</strong> {{ referral.referral_date }}</p>
+    <p><strong>Referrer Name:</strong> {{ referral.referrer_name }}</p>
+    <p><strong>Reason:</strong> {{ referral.reason }}</p>
+    <p><strong>Note:</strong> {{ referral.note }}</p>
+    {% if referral.document %}
+    <p><strong>Document:</strong> <a class="action-button" href="{{ referral.document.url }}">View Document</a></p>
+    {% endif %}
+
+    <a class="button" href="{% url 'referral_update' referral.person.id referral.id %}">Edit Referral</a>
+    <div class="flexdiv">
+        <a class="button" href="{% url 'person_detail' referral.person.id %}">Back to Person Detail</a>
+        <a class="button" href="{% url 'referral_list' %}">Back to Referral List</a>
+    </div>
+
+</div>
+{% endblock %}

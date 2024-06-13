@@ -1,0 +1,303 @@
+/* RESET */
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+img,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+a,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+/* END RESET */
+
+body {
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+
+nav,
+main,
+footer {
+    padding: 1em;
+}
+
+header,
+nav,
+footer {
+    text-align: center;
+    background-color: #0A97A2;
+    color: #fff;
+}
+
+#branding {
+    display: flex;
+    justify-items: baseline;
+}
+
+header h1 {
+    font-size: 1.3em;
+    align-self: center;
+}
+
+header a,
+nav a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.register {
+    background-color: #fff;
+    border: #0A97A2 1px solid;
+}
+
+.register a {
+    color: #0A97A2;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+nav a:hover,
+.register a:hover {
+    font-weight: bold;
+}
+
+footer {
+    text-align: left;
+}
+
+img {
+    width: 100%;
+}
+
+#logo {
+    width: 120px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td,
+table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+table th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    background-color: #0A97A2;
+    color: white;
+}
+
+.button:link,
+.button:visited {
+    border: #0A97A2 solid 2px;
+    color: #0A97A2;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 1em 0;
+}
+
+.button:hover,
+.button:active {
+    background-color: #0A97A2;
+    color: white
+}
+
+.action-button:visited,
+.action-button {
+    color: #0A97A2;
+}
+
+.action-button:hover {
+    color: #065c62;
+}
+
+button {
+    background-color: #e7e7e7;
+    font-size: 16px;
+    padding: 1px 2px;
+    border-radius: 4px;
+}
+
+button:hover {
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.24), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.blank{
+    margin-top:25px;
+}
+
+@media screen and (min-width:45rem){
+    body {
+        display: grid;
+        grid-template-columns: 1fr 10rem 35rem 1fr;
+    }
+
+    header{
+        grid-column: 2/4;
+        grid-row:1;
+        align-items: center;
+    }
+
+    main{
+        grid-column:3;
+    }
+
+    nav{
+        grid-column:2;
+    }
+
+    .blank{
+        grid-column:2/4;
+        grid-row:3;
+    }
+
+    footer{
+        grid-column:2/4;
+        grid-row:4;
+    }
+
+    #branding {
+        padding: 0 2em;
+    }
+
+    nav ul{
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav ul li{
+        text-align: left;
+        padding:15px 10px;
+    }
+
+    nav ul li:hover{
+        border-bottom: white 1px solid;
+
+    }
+
+    header, main, .blank, footer, nav{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .register{
+        border:none;
+    }
+
+    @media screen and (min-width:72rem){
+        body {
+            display: grid;
+            grid-template-columns: 1fr 58em 1fr;
+        }
+
+        header, main, .blank, footer{
+            grid-column: 2;
+        }
+
+        main{
+            grid-row:3;
+        }
+
+        nav ul{
+            flex-direction:row;
+            margin: 0 1em;
+        }
+
+        nav ul li{
+            padding:0;
+        }
+
+        .blank{
+            grid-row:4;
+        }
+
+        footer{
+            grid-row:5;
+        }
+
+        #branding{
+            justify-content:space-evenly;
+        }
+
+        header h1{
+            font-size: 1.5em;
+        }
+    }
+}

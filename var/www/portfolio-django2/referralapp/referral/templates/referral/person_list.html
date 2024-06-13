@@ -1,0 +1,39 @@
+{% extends 'referral/base.html' %}
+
+{% block title %}
+Person List - NZ Healthcare
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Person List</h2>
+    <a class="button" href="{% url 'person_create' %}">+ New Person</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Date of Birth</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in persons %}
+            <tr>
+                <td>{{ person.id }}</td>
+                <td>{{ person.first_name }} {{ person.last_name }}</td>
+                <td>{{ person.date_of_birth }}</td>
+                <td>
+                    <a class="action-button" href="{% url 'person_detail' person.id %}">View Details</a> |
+                    <a class="action-button" href="{% url 'person_delete' person.id %}">Delete</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">No people found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

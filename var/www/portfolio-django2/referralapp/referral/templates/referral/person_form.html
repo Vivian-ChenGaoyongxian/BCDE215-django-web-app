@@ -1,0 +1,17 @@
+{% extends 'referral/base.html' %}
+
+{% block title %}
+Person Form - NZ Healthcare
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Person Form</h2>
+    <form method="post" autocomplete="off">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit"><i class="fa-solid fa-floppy-disk"></i>Submit</button>
+    </form>
+    <a class="button" href="{% url 'person_list' %}">Back to People List</a>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'referral/css/stylesheet.css' %}">
+</head>
+
+<body>
+    <header>
+        <div id="branding">
+            <img id="logo" src="{% static 'referral/images/logo2.png' %}" alt="NZ Healthcare Logo">
+            <h1>Health Management Referral System - NZ Healthcare</h1>
+        </div>
+        <div class="register">
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}?next=/">Logout</a>
+            {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'person_list' %}">People</a></li>
+            <li><a href="{% url 'referral_list' %}">Referrals</a></li>
+            <li><a href="{% url 'admin:index' %}">Admin Login</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <div class="blank">
+    </div>
+
+    <footer>
+        <p>©NZ Healthcare, 2023</p>
+    </footer>
+
+</body>
+
+</html>

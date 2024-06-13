@@ -1,0 +1,41 @@
+{% extends 'referral/base.html' %}
+
+{% block title %}
+Person Details - NZ Healthcare
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>{{ person.first_name }} {{ person.last_name }}</h2>
+    <p><strong>Phone Number:</strong> {{ person.phone_number }}</p>
+    <p><strong>Date of Birth:</strong> {{ person.date_of_birth }}</p>
+
+    <a class="button" href="{% url 'person_update' person.id %}">Edit Person</a> 
+    <a class="button" href="{% url 'person_delete' person.id %}">Delete Person</a>
+
+    <h3>Referrals</h3>
+    <a class="button" href="{% url 'referral_create' person.id %}">+ New Referral</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Referral Date</th>
+                <th>Referrer Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for referral in person.referral_set.all %}
+            <tr>
+                <td>{{ referral.referral_date }}</td>
+                <td>{{ referral.referrer_name }}</td>
+                <td>
+                    <a class="action-button" href="{% url 'referral_detail' referral.id %}">View Details</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="button" href="{% url 'person_list' %}">Back to Person List</a> 
+
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'referral/base.html' %}
+
+{% block title %}
+Referral Form - NZ Healthcare
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Referral Form</h2>
+    <form method="post" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

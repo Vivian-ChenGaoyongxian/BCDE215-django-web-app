@@ -1,0 +1,16 @@
+{% extends "referral/base.html" %}
+
+{% block title %}
+Home - NZ Healthcare
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2>Welcome to NZ Healthcare</h2>
+    <p>We manage the health of people referred to us by other organisations and individuals.</p>
+    <p>Explore our system to manage people and their referrals efficiently.</p>
+    <img src="{% static 'referral/images/welcome-img.png' %}" alt="Welcome Image">
+</div>
+{% endblock %}
